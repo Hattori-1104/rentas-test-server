@@ -7,7 +7,9 @@ app.get('/', (c) => {
 })
 
 app.post("/", async (c) => {
-  console.log(`received data : ${await c.req.parseBody()}`)
+  const data = await c.req.json()
+  console.log("received data :\n", data)
+  return c.json(data)
 })
 
 export default app
